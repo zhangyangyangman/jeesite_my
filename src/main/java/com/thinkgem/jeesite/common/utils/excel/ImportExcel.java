@@ -18,6 +18,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.DateUtil;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -58,7 +59,7 @@ public class ImportExcel {
 	
 	/**
 	 * 构造函数
-	 * @param path 导入文件，读取第一个工作表
+	 * @param fileName 导入文件，读取第一个工作表
 	 * @param headerNum 标题行号，数据行号=标题行号+1
 	 * @throws InvalidFormatException 
 	 * @throws IOException 
@@ -70,7 +71,7 @@ public class ImportExcel {
 	
 	/**
 	 * 构造函数
-	 * @param path 导入文件对象，读取第一个工作表
+	 * @param file 导入文件对象，读取第一个工作表
 	 * @param headerNum 标题行号，数据行号=标题行号+1
 	 * @throws InvalidFormatException 
 	 * @throws IOException 
@@ -82,7 +83,7 @@ public class ImportExcel {
 
 	/**
 	 * 构造函数
-	 * @param path 导入文件
+	 * @param fileName 导入文件
 	 * @param headerNum 标题行号，数据行号=标题行号+1
 	 * @param sheetIndex 工作表编号
 	 * @throws InvalidFormatException 
@@ -95,7 +96,7 @@ public class ImportExcel {
 	
 	/**
 	 * 构造函数
-	 * @param path 导入文件对象
+	 * @param file 导入文件对象
 	 * @param headerNum 标题行号，数据行号=标题行号+1
 	 * @param sheetIndex 工作表编号
 	 * @throws InvalidFormatException 
@@ -108,7 +109,7 @@ public class ImportExcel {
 	
 	/**
 	 * 构造函数
-	 * @param file 导入文件对象
+	 * @param multipartFile 导入文件对象
 	 * @param headerNum 标题行号，数据行号=标题行号+1
 	 * @param sheetIndex 工作表编号
 	 * @throws InvalidFormatException 
@@ -121,7 +122,7 @@ public class ImportExcel {
 
 	/**
 	 * 构造函数
-	 * @param path 导入文件对象
+	 * @param fileName 导入文件对象
 	 * @param headerNum 标题行号，数据行号=标题行号+1
 	 * @param sheetIndex 工作表编号
 	 * @throws InvalidFormatException 
@@ -190,15 +191,15 @@ public class ImportExcel {
 		try{
 			Cell cell = row.getCell(column);
 			if (cell != null){
-				if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC){
+				if (cell.getCellType() == CellType.NUMERIC){
 					val = cell.getNumericCellValue();
-				}else if (cell.getCellType() == Cell.CELL_TYPE_STRING){
+				}else if (cell.getCellType() == CellType.STRING){
 					val = cell.getStringCellValue();
-				}else if (cell.getCellType() == Cell.CELL_TYPE_FORMULA){
+				}else if (cell.getCellType() == CellType.FORMULA){
 					val = cell.getCellFormula();
-				}else if (cell.getCellType() == Cell.CELL_TYPE_BOOLEAN){
+				}else if (cell.getCellType() == CellType.BOOLEAN){
 					val = cell.getBooleanCellValue();
-				}else if (cell.getCellType() == Cell.CELL_TYPE_ERROR){
+				}else if (cell.getCellType() == CellType.ERROR){
 					val = cell.getErrorCellValue();
 				}
 			}
