@@ -8,7 +8,7 @@
     <packaging>war</packaging>
     <name>JeeSite</name>
     <url>http://thinkgem.github.com/jeesite</url>
-    <inceptionYear>2012-2016</inceptionYear>
+    <inceptionYear>2012-NOW</inceptionYear>
     <!-- 项目属性 -->
     <properties>
         <!-- main version setting -->
@@ -43,7 +43,7 @@
         <!-- environment setting -->
         <jdk.version>1.8</jdk.version>
         <tomcat.version>2.2</tomcat.version>
-        <jetty.version>11.0.0.beta2</jetty.version>
+        <jetty.version>9.4.17.v20190418</jetty.version>
         <webserver.port>8181</webserver.port>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <downloadSources>true</downloadSources>
